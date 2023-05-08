@@ -1,0 +1,285 @@
+.footer{
+    background: #fff;
+    border-top: 1px solid #eaeaea;
+    padding: 50px 0;
+    width: 100%;
+    @include tablet{
+        padding: 30px 0;
+    }
+    .footer-inner{
+        display: flex;
+        flex-direction: column;
+        gap: 70px;
+        margin: 0 auto;
+        max-width: 1280px;
+        width: 100%;
+        @include desktop2{
+            padding: 0 20px;
+        }
+        @include tablet{
+            position: relative;
+            height: 100%;
+            gap: 0;
+        }
+    }
+    .group-nav{
+        display: flex;
+        justify-content: space-between;
+        .nav-list{
+            display: flex;
+            gap: 50px;
+            @include tablet{
+                display: none;
+            }
+            .nav-item{
+                .nav{
+                    color: #121212;
+                    font-size: 18px;
+                    font-weight: 600;
+                }
+            }
+        }
+        .family-list{
+            position: relative;
+            @include tablet{
+                position: absolute;
+                top: 0;
+                right: 20px;
+            }
+            @include mobile{
+                display: none;
+            }
+            .family{
+                position: relative;
+                color: #121212;
+                font-size: 16px;
+                font-weight: 700;
+                padding-right: 30px;
+                @include tablet{
+                    font-size: 14px;
+                }
+                &::after{
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    right: 0;
+                    background: url(../img/ico-plus.svg) no-repeat center;
+                    width: 10px;
+                    height: 10px;
+                    content: '';
+                }
+                &.on{
+                    &::after{
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        background: #121212;
+                        right: 0;
+                        width: 10px;
+                        height: 2px;
+                    content: '';
+                    }
+                }
+            }
+            .sub-list{
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                position: absolute;
+                visibility: hidden;
+                opacity: 0;
+                transition: all .3s;
+                bottom: 35px;
+                background: #fff;
+                border: 1px solid #444;
+                border-radius: 15px;
+                left: -15px;
+                padding: 20px 25px;
+                width: 150px;
+                @include tablet{
+                    font-size: 13px;
+                    padding: 15px 20px;
+                    width: 120px;
+                }
+                &.on{
+                    opacity: 1;
+                    visibility: visible;
+                }
+                .sub-item{
+                    .sub{
+                        color: #000;
+                        line-height: 20px;
+                    }
+                }
+            }
+        }
+    }
+    
+    .group-addr{
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        @include tablet{
+            display: none;
+        }
+        .addr-box{
+            display: flex;
+            gap: 5px;
+            color: #444;
+            font-size: 18px;
+            @include tablet{
+                font-size: 14px;
+                line-height: 24px;
+            }
+            .title{
+                font-weight: 700;
+            }
+            .addr{}
+        }
+    }
+
+    .mgroup-addr{
+        display: none;
+        @include tablet{
+            display: flex;
+            flex-direction: column;
+        }
+        .addr-box{
+            display: flex;
+            gap: 5px;
+            color: #444;
+            font-size: 14px;
+            line-height: 24px;
+            &:last-child{
+                @include tablet{
+                    margin-top: 10px;
+                }
+            }
+            .title{
+                font-weight: 700;
+            }
+            .addr{}
+        }
+
+    }
+    
+    .group-company{
+        display: flex;
+        gap: 15px;
+        @include tablet{
+            margin: 50px 0;
+        }
+        .text{
+            color: #444;
+            font-size: 18px;
+            @include tablet{
+                font-size: 14px;
+            }
+        }
+    }
+    
+    .flex-wrap{
+        display: flex;
+        justify-content: space-between;
+        @include tablet{
+            flex-direction: column;
+            font-size: 14px;
+        }
+        .group-info{
+            display: flex;
+            gap: 50px;
+            @include mobile{
+                flex-direction: column;
+                gap: 25px;
+            }
+            .link-info{
+                color: #000;
+                &.policy{
+                    font-weight: 600;
+                }
+                &+.link-info{
+                    position: relative;
+                    &::before{
+                        position: absolute;
+                        background: #ddd;
+                        height: 14px;
+                        left: -25px;
+                        top: 2px;
+                        width: 1px;
+                        content: "";
+                    }
+                }
+            }
+        }
+        .m-family-list{
+            display: none;
+            @include mobile{
+                display: block;
+                border-bottom: 1px solid #121212;
+                margin-top: 50px;
+                width: 100%;
+            }
+            .family-item{
+                position: relative;
+                .family{
+                    position: relative;
+                    display: block;
+                    font-weight: 700;
+                    font-size: 14px;
+                    padding-bottom: 15px;
+                    &::after{
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        background: url(../img/ico-plus.svg) no-repeat center;
+                        width: 10px;
+                        height: 10px;
+                        content: '';
+                    }
+                    &.on{
+                        &::after{
+                            position: absolute;
+                            top: 4px;
+                            background: #121212;
+                            right: 0;
+                            width: 10px;
+                            height: 2px;
+                        content: '';
+                        }
+                    }
+                }
+                .sub-list{
+                    display: flex;
+                    flex-direction: column;
+                    position: absolute;
+                    bottom: 35px;
+                    gap: 15px;
+                    background: #fff;
+                    width: 100%;
+                    border: 1px solid #444;
+                    border-radius: 15px;
+                    left: -15px;
+                    padding: 20px 25px;
+                    transition: all .3s;
+                    visibility: hidden;
+                    opacity: 0;
+                    &.on{
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                    .sub-item{
+                        .sub{
+                            line-height: 20px;
+                        }
+                    }
+                }
+            }
+        }
+        .group-corp{
+            @include tablet{
+                margin-top: 25px;
+                font-size: 13px;
+            }
+        }
+    }
+}

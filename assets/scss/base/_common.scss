@@ -1,0 +1,26 @@
+body{
+    font-family: 'Pretendard',sans-serif;
+    line-height: 1;
+    letter-spacing: -.03em;
+}
+
+.wrapper{
+    margin: 0 auto;
+}
+
+.blind{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    margin: -1px;
+}
+
+.inner{
+    margin: 0 auto;
+    max-width: 1280px;
+    @include desktop2{
+        padding: 0 20px;
+    }
+}

@@ -1,0 +1,451 @@
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #e8e8e8;
+    z-index: 15;
+    &::after{
+        background: #fff;
+        border-bottom: 1px solid #e8e8e8;
+        height: 320px;
+        left: 0;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        right: 0;
+        top: 99px;
+        transition: all .3s ease-out;
+        z-index: -1;
+        content: "";
+    }
+    &.on{
+        &::after{
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+    .flex-wrap{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 70px;
+        width: 100%;
+        height: 100%;
+        // @include desktop3{
+        //     padding: 0 20px;
+        // }
+        @include desktop{
+            padding: 16px 20px;
+        }
+        .logo{
+            a{
+                display: block;
+                width: 150px;
+                height: 36px;
+                @include desktop{
+                    width: 100px;
+                    height: 24px;
+                }
+            }
+            .img-box{
+                width: 100%;
+                height: 100%;
+                .wrap{
+                    position: relative;
+                    padding-bottom: calc(36/150*100%);
+                }
+                svg{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+        .gnb{
+            @include desktop{
+                display: none;
+            }
+            .nav-list{
+                display: flex;
+            }
+            .nav-item{
+                position: relative;
+                .nav{
+                    position: relative;
+                    display: block;
+                    color: #121212;
+                    font-size: 18px;
+                    font-weight: 600;
+                    padding: 40px 45px;
+                    transition: all .2s;
+                    @include desktop2{
+                        padding: 40px 35px;
+                    }
+                    &::before{
+                        position: absolute;
+                        display: block;
+                        background: #ec6800;
+                        bottom: -1px;
+                        left: 20%;
+                        right: 20%;
+                        height: 1px;
+                        opacity: 0;
+                        transition: all .5s;
+                        z-index: 1;
+                        content: "";
+                    }
+                    &.on{
+                        color: #ec6800;
+                        &::before{
+                            opacity: 1;
+                            left: 0%;
+                            right: 0%;
+                        }
+                    }
+                }
+                .sub-box{
+                    position: absolute;
+                    visibility: hidden;
+                    opacity: 0;
+                    width: 100%;
+                    transition: all .3s ease-out;
+                    &.on{
+                        visibility: visible;
+                        opacity: 1;
+                    }
+                    .sub-list{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 30px;
+                        // background: #f00;
+                        padding-top: 30px;
+                        height: 320px;
+                        .sub-item{
+                            .sub{
+                                display: block;
+                                color: #444;
+                                font-size: 16px;
+                                font-weight: 400;
+                                transition: all .2s;
+                                &:hover{
+                                    color: #ec6800;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .btn-menu{
+            position: relative;
+            margin-left: 100px;
+            height: 20px;
+            width: 28px;
+            transition: .3s;
+            @include desktop2{
+                margin-left: 0;
+            }
+            &::before{
+                position: absolute;
+                background: #111;
+                display: inline-block;
+                height: 2px;
+                top: 0;
+                left: 0;
+                width: 100%;
+                content: "";
+            }
+            span{
+            position: absolute;
+            background: #111;
+            height: 2px;
+            margin-top: -1px;
+            right: 0;
+            top: 50%;
+            width: 21px;
+            }
+            &::after{
+                position: absolute;
+                background: #111;
+                height: 2px;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                content: "";
+            }
+        }
+    }
+}
+
+.side-nav{
+    visibility: hidden;
+    position: relative;
+    opacity: 0;
+    transition: all .3s ease-out;
+    z-index: 15;
+    @include tablet{
+        right: -100%;
+    }
+    &.on{
+        visibility: visible;
+        opacity: 1;
+        @include tablet{
+            right: 0;
+        }
+    }
+    .inner-wrap{
+        position: fixed;
+        background: #fff;
+        bottom: 20%;
+        right: 0;
+        top: 0;
+        transition: all .3s ease-out;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        padding: 0 70px;
+        @include desktop3{
+            padding: 0 20px;
+        }
+        @include tablet{
+            padding: 0;
+        }
+    }
+    .logo-area{
+        padding: 31px 0;
+        @include desktop2{
+            padding: 31px 0;
+        }
+        @include desktop{
+            padding: 16px 0;
+        }
+        @include tablet{
+            padding: 16px 20px;
+        }
+
+        .img-box{
+            width: 150px;
+            height: 36px;
+            @include desktop{
+                width: 100px;
+                height: 24px;
+            }
+            .wrap{
+                position: relative;
+                padding-bottom: calc(36/150*100%);
+                height: 100%;
+                width: 100%;
+            }
+            svg{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    .nav-list{
+        margin-top: 135px;
+        display: flex;
+        justify-content: space-between;
+        gap: 2%;
+        @include tablet{
+            flex-direction: column;
+            border-top: 1px solid #e8e8e8;
+            margin-top: 0;
+        }
+        .nav-item{
+            flex: 1;
+            .nav{
+                display: block;
+                border-bottom: 1px solid #ddd;
+                color: #121212;
+                font-size: 30px;
+                font-weight: 600;
+                padding-bottom: 40px;
+                @include desktop2{
+                    font-size: 22px;
+                    padding-bottom: 25px;
+                }
+                @include tablet{
+                    padding: 25px 20px;
+                    font-size: 20px;
+                    font-weight: 700;
+                }
+                &.on{
+                    color: #ec6800;
+                    border-bottom: 1px solid #ec6800;
+                    @include tablet{
+                        color: #ec6800;
+                        border-width: 0;
+                    }
+                }
+            }
+            .sub-list{
+                margin-top: 55px;
+                display: flex;
+                flex-direction: column;
+                gap: 45px;
+                @include desktop2{
+                    gap: 25px;
+                    margin-top: 35px;
+                }
+                @include tablet{
+                    display: none;
+                    margin-top: 0;
+                }
+                &.on{
+                    @include tablet{
+                        display: block;
+                        padding: 20px 20px 30px;
+                        border-bottom: 1px solid #ddd;
+                    }
+                }
+                .sub-item{
+                    &+.sub-item{
+                        @include tablet{
+                            margin-top: 30px;
+                        }
+                    }
+                    .sub{
+                        display: block;
+                        color: #121212;
+                        font-size: 20px;
+                        font-weight: 500;
+                        line-height: 25px;
+                        padding-right: 25px;
+                        word-break: keep-all;
+                        @include desktop2{
+                            font-size: 16px;
+                        }
+                        @include tablet{
+                            font-size: 15px;
+                            line-height: 1;
+                            font-weight: 400;
+                        }
+                        &.plus{
+                            position: relative;
+                            &::after{
+                                position: absolute;
+                                margin-left: 8px;
+                                width: 25px;
+                                height: 25px;
+                                background: url(../img/ar1.svg) no-repeat center;
+                                content: '';
+                                @include tablet{
+                                    display: none;
+                                }
+                            }
+                            &.on{
+                                position: relative;
+                                color: #ec6800;
+                                &::after{
+                                position: absolute;
+                                margin-left: 8px;
+                                width: 25px;
+                                height: 25px;
+                                background: url(../img/ar2.svg) no-repeat center;
+                                content: '';
+                                }
+                            }
+                        }
+                        &:hover{
+                            color: #ec6800;
+                        }
+                    }
+                    .navsub-list{
+                        display: none;
+                        margin-top: 30px;
+                        &.on{
+                            display: flex;
+                            flex-direction: column;
+                            gap: 20px;
+                        }
+                        .navsub-item{
+                            .navsub{
+                                color: #444;
+                                font-size: 14px;
+                                &:hover{
+                                    color: #ec6800;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .flex-wrap{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 110px;
+        @include desktop2{
+            margin-top: 90px;
+        }
+        @include tablet{
+            display: none;
+        }
+        .group-info{
+            display: flex;
+            gap: 30px;
+            .link-info{
+                color: #121212;
+                font-size: 16px;
+                @include desktop2{
+                    font-size: 14px;
+                }
+                &.policy{
+                    font-weight: 600;
+                }
+            }
+        }
+        .group-corp{
+            @include desktop2{
+                font-size: 14px;
+            }
+        }
+    }
+    .btn-close{
+        position: absolute;
+        top: 35px;
+        right: 70px;
+        width: 27px;
+        height: 27px;
+        @include desktop3{
+            right: 20px;
+        }
+        @include desktop2{
+            // top: 50px;
+        }
+        @include desktop{
+            top: 16px;
+            width: 25px;
+            height: 25px;
+        }
+        @include tablet{
+            width: 21px;
+            height: 21px;
+        }
+        .img-box{
+            width: 100%;
+            height: 100%;
+            .wrap{
+                position: relative;
+                padding-bottom: 100%;
+            }
+            img{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
